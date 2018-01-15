@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-  
+
   def index
     @artists = Artist.all
   end
@@ -9,7 +9,7 @@ class ArtistsController < ApplicationController
   end
 
   def create
-    @artist = Artist.create(name: params[:artist][:name], bio: params[:artist][:bio])
+    @artist = Artist.create(params.require(:artist).permit(:name,:bio))
     redirect_to @artist
   end
 
