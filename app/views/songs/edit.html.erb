@@ -1,0 +1,23 @@
+<h1>Edit <%= @song.name %></h1>
+<%= form_for(@song) do |f| %>
+  <label>Name:</label><br>
+  <%= f.text_field :name %><br>
+
+  <label>Choose an existing Artist:</label><br>
+    <% Artist.all.each do |artist| %>
+      <%= artist.name %> | <%= artist.id %><br>
+    <% end %><br>
+
+    <label>Put number to coorisponding Artist here:</label><br>
+    <%= f.number_field :artist_id %><br><br>
+
+    <label>Choose an existing Artist:</label><br>
+    <% Genre.all.each do |genre| %>
+      <%= genre.name %> | <%= genre.id %><br>
+    <% end %><br>
+
+    <label>Put number to coorisponding Genre here:</label><br>
+    <%= f.number_field :genre_id %><br>
+
+    <%= f.submit "Update Song" %><br>
+<% end %>
